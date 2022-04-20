@@ -6,10 +6,10 @@ import (
 	"os"
 	"strings"
 
+	nacos "github.com/skirrund/gcloud-nacos"
 	"github.com/skirrund/gcloud/bootstrap/env"
 	commonConfig "github.com/skirrund/gcloud/config"
 	"github.com/skirrund/gcloud/logger"
-	"github.com/skirrund/gcloud/plugins/nacos"
 
 	"github.com/skirrund/gcloud/server"
 
@@ -78,11 +78,11 @@ func defaultOptions() commonConfig.Options {
 	return options
 }
 
-func CreateDefaultInstance() *nacosConfigCenter {
+func CreateDefaultInstance() commonConfig.IConfig {
 	return CreateInstance(defaultOptions())
 }
 
-func CreateInstance(opts commonConfig.Options) *nacosConfigCenter {
+func CreateInstance(opts commonConfig.Options) commonConfig.IConfig {
 	nc = &nacosConfigCenter{}
 	nc.opts = opts
 	err := configure(nc, opts)

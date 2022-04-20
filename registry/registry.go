@@ -5,9 +5,9 @@ import (
 	"runtime"
 	"strings"
 
+	nacos "github.com/skirrund/gcloud-nacos"
 	"github.com/skirrund/gcloud/bootstrap/env"
 	"github.com/skirrund/gcloud/logger"
-	"github.com/skirrund/gcloud/plugins/nacos"
 	"github.com/skirrund/gcloud/registry"
 
 	"github.com/skirrund/gcloud/server"
