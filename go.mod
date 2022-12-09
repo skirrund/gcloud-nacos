@@ -1,10 +1,10 @@
 module github.com/skirrund/gcloud-nacos
 
-go 1.18
+go 1.19
 
 require (
 	github.com/nacos-group/nacos-sdk-go/v2 v2.1.2
-	github.com/skirrund/gcloud v0.5.18
+	github.com/skirrund/gcloud v0.6.1
 	github.com/spf13/viper v1.14.0
 )
 
