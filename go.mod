@@ -3,8 +3,8 @@ module github.com/skirrund/gcloud-nacos
 go 1.19
 
 require (
-	github.com/nacos-group/nacos-sdk-go/v2 v2.1.3
-	github.com/skirrund/gcloud v0.6.3
+	github.com/nacos-group/nacos-sdk-go/v2 v2.2.1
+	github.com/skirrund/gcloud v0.6.4
 	github.com/spf13/viper v1.15.0
 )
 
@@ -38,7 +38,7 @@ require (
 	github.com/subosito/gotenv v1.4.2 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	go.uber.org/zap v1.21.0 // indirect
+	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
