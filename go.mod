@@ -3,8 +3,8 @@ module github.com/skirrund/gcloud-nacos
 go 1.19
 
 require (
-	github.com/nacos-group/nacos-sdk-go/v2 v2.2.1
-	github.com/skirrund/gcloud v0.6.9
+	github.com/nacos-group/nacos-sdk-go/v2 v2.2.2
+	github.com/skirrund/gcloud v0.6.13
 	github.com/spf13/viper v1.15.0
 )
 
