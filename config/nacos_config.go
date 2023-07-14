@@ -183,12 +183,15 @@ func (nc *nacosConfigCenter) MergeConfig(eventType server.EventName, eventInfo i
 	return nil
 }
 
-func (nc *nacosConfigCenter) SetBaseConfig(reader io.Reader, configType string) {
+func (nc *nacosConfigCenter) SetBaseConfig(reader io.Reader, configType string) error {
 	baseCfg := viper.New()
 	baseCfg.SetConfigName("base")
 	baseCfg.SetConfigType(configType)
-	baseCfg.ReadConfig(reader)
-	config.MergeConfigMap(baseCfg.AllSettings())
+	err := baseCfg.ReadConfig(reader)
+	if err != nil {
+		return err
+	}
+	return config.MergeConfigMap(baseCfg.AllSettings())
 }
 
 func (c *nacosConfigCenter) Read() error {
@@ -205,8 +208,7 @@ func (c *nacosConfigCenter) Read() error {
 	}
 	reader := strings.NewReader(content)
 	config.SetConfigType(c.opts.ConfigOptions.FileExtension)
-	config.ReadConfig(reader)
-	return nil
+	return config.ReadConfig(reader)
 }
 
 func (c *nacosConfigCenter) String() string {
