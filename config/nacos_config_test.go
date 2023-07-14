@@ -30,7 +30,7 @@ func TestConfig(t *testing.T) {
 		},
 	}
 	t.Log(">>>>>")
-	nacos := CreateInstance(opts)
+	nacos, _ := CreateInstance(opts)
 	env.GetInstance().SetBaseConfig(bytes2.NewReader(baseConfig), "properties")
 	env.GetInstance().LoadProfileBaseConfig("prod", "properties")
 	t.Log(nacos.GetString("datasource.dsn"))

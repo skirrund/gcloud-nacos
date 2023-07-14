@@ -78,29 +78,28 @@ func defaultOptions() commonConfig.Options {
 	return options
 }
 
-func CreateDefaultInstance() commonConfig.IConfig {
+func CreateDefaultInstance() (commonConfig.IConfig, error) {
 	return CreateInstance(defaultOptions())
 }
 
-func CreateInstance(opts commonConfig.Options) commonConfig.IConfig {
+func CreateInstance(opts commonConfig.Options) (commonConfig.IConfig, error) {
 	nc = &nacosConfigCenter{}
 	nc.opts = opts
 	err := configure(nc, opts)
 	if err != nil {
 		logger.Panic("[nacos]config error:", err.Error())
-		return nc
+		return nc, err
 	}
 	config = viper.New()
 	err = nc.Read()
 	if err != nil {
 		logger.Panic(err)
-		return nc
-		//panic(err)
+		return nc, err
 	}
 	logger.Info("[nacos] CreateInstance EmitEvent ConfigChangeEvent")
 	server.EmitEvent(server.ConfigChangeEvent, config)
-	nc.Watch()
-	return nc
+	err = nc.Watch()
+	return nc, err
 }
 
 func (nc *nacosConfigCenter) Set(key string, value interface{}) {
@@ -215,8 +214,8 @@ func (c *nacosConfigCenter) String() string {
 	return "nacos"
 }
 
-func (c *nacosConfigCenter) Watch() {
-	newConfigWatcher(c)
+func (c *nacosConfigCenter) Watch() error {
+	return newConfigWatcher(c)
 }
 
 func (nc *nacosConfigCenter) dataId() string {
@@ -224,7 +223,7 @@ func (nc *nacosConfigCenter) dataId() string {
 	return opts.Prefix + "-" + opts.Env + "." + opts.FileExtension
 }
 
-func newConfigWatcher(nc *nacosConfigCenter) {
+func newConfigWatcher(nc *nacosConfigCenter) error {
 	logger.Info("[nacos] ListenConfig DataId:" + nc.dataId() + ",Group:" + nc.opts.ConfigOptions.Group)
 
 	err := nc.client.ListenConfig(vo.ConfigParam{
@@ -246,9 +245,10 @@ func newConfigWatcher(nc *nacosConfigCenter) {
 	if err != nil {
 		logger.Error("[nacos] newConfigWatcher error:" + err.Error())
 	}
+	return err
 }
 
-func (nc *nacosConfigCenter) Shutdown() {
+func (nc *nacosConfigCenter) Shutdown() error {
 	p := vo.ConfigParam{
 		DataId: nc.dataId(),
 		Group:  nc.opts.ConfigOptions.Group,
@@ -259,4 +259,5 @@ func (nc *nacosConfigCenter) Shutdown() {
 	if err != nil {
 		logger.Error("[nacos] CancelListenConfig error: ", err.Error())
 	}
+	return err
 }

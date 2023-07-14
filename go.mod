@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/nacos-group/nacos-sdk-go/v2 v2.2.2
-	github.com/skirrund/gcloud v0.6.14
+	github.com/skirrund/gcloud v0.6.15-1
 	github.com/spf13/viper v1.15.0
 )
 

@@ -248,8 +248,8 @@ github.com/rogpeppe/go-internal v1.6.1 h1:/FiVV8dS/e+YqF2JvO3yXRFbBLTIuSDkuC7aBO
 github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
 github.com/sirupsen/logrus v1.4.2/go.mod h1:tLMulIdttU9McNUspp0xgXVQah82FyeX6MwdIuYE2rE=
 github.com/sirupsen/logrus v1.6.0/go.mod h1:7uNnSEd1DgxDLC74fIahvMZmmYsHGZGEOFrfsX/uA88=
-github.com/skirrund/gcloud v0.6.14 h1:h6i9eoK5MXpUaAuw5pxtTf3P09LPyrA5fixralz/5xU=
-github.com/skirrund/gcloud v0.6.14/go.mod h1:6zXPUpTS1aLRyHB4g4l233l1st9/Z9xNfKMyQ+o7j78=
+github.com/skirrund/gcloud v0.6.15-1 h1:NTCza4O/0F/qgd+2ksaq77F1MFhNffU7wD/+H7RnHms=
+github.com/skirrund/gcloud v0.6.15-1/go.mod h1:6zXPUpTS1aLRyHB4g4l233l1st9/Z9xNfKMyQ+o7j78=
 github.com/spf13/afero v1.9.3 h1:41FoI0fD7OR7mGcKE/aOiLkGreyf8ifIOQmJANWogMk=
 github.com/spf13/afero v1.9.3/go.mod h1:iUV7ddyEEZPO5gA3zD4fJt6iStLlL+Lg4m2cihcDf8Y=
 github.com/spf13/cast v1.5.0 h1:rj3WzYc11XZaIZMPKmwP96zkFEnnAmV8s6XbB2aY32w=
