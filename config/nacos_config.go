@@ -232,14 +232,16 @@ func newConfigWatcher(nc *nacosConfigCenter) error {
 		OnChange: func(namespace, group, dataId, data string) {
 			logger.Info("[nacos] config changed dataId:" + dataId + ",ns:" + namespace + ",group:" + group)
 			reader := strings.NewReader(data)
-			config.SetConfigType(nc.opts.ConfigOptions.FileExtension)
-			err := config.ReadConfig(reader)
+			v := viper.New()
+			v.SetConfigType(nc.opts.ConfigOptions.FileExtension)
+			err := v.ReadConfig(reader)
 			if err != nil {
 				logger.Error("[nacos] watch error:", err.Error())
 				return
 			}
+			config = v
 			logger.Info("[nacos] watch EmitEvent ConfigChangeEvent")
-			server.EmitEvent(server.ConfigChangeEvent, config)
+			server.EmitEvent(server.ConfigChangeEvent, v)
 		},
 	})
 	if err != nil {
