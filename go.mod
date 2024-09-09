@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/nacos-group/nacos-sdk-go/v2 v2.2.7
-	github.com/skirrund/gcloud v0.8.11
+	github.com/skirrund/gcloud v0.9.1
 	github.com/spf13/viper v1.19.0
 )
 
@@ -25,7 +25,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/lestrrat-go/strftime v1.0.6 // indirect
+	github.com/lestrrat-go/strftime v1.1.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
